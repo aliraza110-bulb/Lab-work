@@ -1,4 +1,3 @@
-# Original book inventory
 books = {
     "The Great Gatsby": 15.99,
     "To Kill a Mockingbird": 12.49,
@@ -7,32 +6,19 @@ books = {
     "Moby Dick": 8.99
 }
 
-# 1️⃣ Create a backup copy
-books_backup = books.copy()  # Shallow copy is enough for this dictionary
+copy=books.copy()
+print("The copy of books\n",books)
 
-# 2️⃣ Print all book titles and their prices
-print("Current Inventory:")
-for title, price in books.items():
-    print(f"{title}: ${price:.2f}")
+for title,prices in books.items():
+    print("\nTitle",title,"\nPrices",prices)
 
-# 3️⃣ Calculate total value of all books
-total_value = sum(books.values())
-print(f"\nTotal value of all books: ${total_value:.2f}")
+total_price=sum(books.values())
+print("\nTotal Price",total_price)
 
-# 4️⃣ Remove "1984" after it is sold
-sold_book = "1984"
-if sold_book in books:
-    sold_price = books.pop(sold_book)
-    print(f"\n'{sold_book}' sold for ${sold_price:.2f} and removed from inventory.")
-else:
-    print(f"\n'{sold_book}' is not in the inventory.")
+if "1984" in books:
+    sold_book=books.pop("1984")
+    print("\nTitle","1984","price",sold_book,"Removed From inventory\n")
 
-# 5️⃣ Print updated inventory
-print("\nUpdated Inventory:")
-for title, price in books.items():
-    print(f"{title}: ${price:.2f}")
-
-# Optional: Show backup to confirm it remains unchanged
-print("\nBackup Inventory (unchanged):")
-for title, price in books_backup.items():
-    print(f"{title}: ${price:.2f}")
+print("\n\t\t\t------Updated Inventory------")
+for title,prices in books.items():
+    print("\nThe Updated Inventory Is","\nTitle",title,"\nPrices",prices)
